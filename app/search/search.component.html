@@ -1,0 +1,30 @@
+<div class="search-bar">
+  <div class="row">
+    <div class="col-xl-11 mt-3 ml-5 mr-5">
+      <form>
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text purple lighten-3 mb-5" id="basic-text1"><i
+                class="material-icons">add_shopping_cart</i></span>
+          </div>
+          <input type="search" class="form-control" name="search-bar" [(ngModel)]="searchKey" (input)="search()"
+            placeholder="Search Products">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-xl-11 mt-3 ml-5 mr-5">
+    <div class="btn btn-secondary dropdown-toggle display" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Product Types
+    </div>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" *ngFor="let type of this.productService.types" selected="type"
+        (click)="products(type)">{{type}}</a>
+    </div>
+  </div>
+
+
+  <app-product [filteredlist]="this.productService.filteredList"></app-product>
+</div>

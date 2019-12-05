@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xl-11 mt-5 ml-5 mr-5 mx-auto">
+    <h4>Shop Managers</h4>
+    <div class="card mt-5">
+      <table class="table table-bordered">
+        <tr>
+          <th class="ml-5">UserId</th>
+          <th class="ml-5">First Name</th>
+          <th class="ml-5">Last Name</th>
+          <th class="ml-5">Age</th>
+          <th class="ml-5">Gender</th>
+          <th class="ml-5">Contact Number</th>
+          <th class="ml-5">Status</th>
+          <th class="ml-5">Response</th>
+        </tr>
+
+        <tr *ngFor="let admin of adminList">
+          <td class="ml-5">{{admin.userId}}</td>
+          <td class="ml-5">{{admin.firstname}}</td>
+          <td class="ml-5">{{admin.lastname}}</td>
+          <td class="ml-5">{{admin.age}}</td>
+          <td class="ml-5">{{admin.gender}}</td>
+          <td class="ml-5">{{admin.contact}}</td>
+          <td class="ml-5">{{admin.status}}</td>
+          <td class="ml-5"><button type="submit" class="badge-success" (click)="acceptAdmin(admin)">Accept</button></td>
+          <td class="ml-5"><button type="submit" class="badge-danger" (click)="declineAdmin(admin)">Decline</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

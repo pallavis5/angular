@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xl-11 mt-5 ml-5 mr-5 mx-auto">
+    <h4>Purchase History</h4>
+    <div class="card mt-5">
+      <div><input type="date" [(ngModel)]="date" (change)="trackDate()"></div>
+      <table class="table table-bordered mt-2">
+        <tr>
+          <th class="ml-5">Bill Id</th>
+          <th class="ml-5">Bill Date</th>
+          <th class="ml-5">Product Code</th>
+          <th class="ml-5">Product Name</th>
+          <th class="ml-5">Rate</th>
+          <th class="ml-5">Quantity</th>
+        </tr>
+
+        <tr *ngFor="let bills of filterList">
+          <td class="ml-5">{{bills.billId}}</td>
+          <td class="ml-5">{{bills.billDate}}</td>
+          <td class="ml-5">{{bills.product.proCode}}</td>
+          <td class="ml-5">{{bills.product.proName}}</td>
+          <td class="ml-5">{{bills.product.rate}}</td>
+          <td class="ml-5">{{bills.quantity}}</td>
+        </tr>
+
+        <tr>
+          <th class="ml-5">Paid Amount</th>
+          <td class="ml-5"></td>
+          <td class="ml-5"></td>
+          <td class="ml-5"></td>
+          <td class="ml-5"></td>
+          <th class="ml-5">{{billTotal}}</th>
+
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

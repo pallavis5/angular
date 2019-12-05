@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-sm navbar-dark text-light navbar_top">
+    <h2>
+      <i class="material-icons md-36"> shopping_cart </i> SmartShop
+    </h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu_collapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu_collapse">
+      <ul class="navbar-nav  ml-auto">
+        <li class="nav-item active" *ngIf="loggedIn()">
+          <i class="material-icons other_icon">person </i> {{this.authService.loggedInUser.userId}}
+        </li>
+        <li class="nav-item active" *ngIf="this.authService.isAdmin">
+          <a class="nav-link" routerLink="add-product/">Add Product</a>
+        </li>
+        <li class="nav-item active" *ngIf="this.authService.isAdmin">
+          <a class="nav-link" routerLink="billing/">Billing</a>
+        </li>
+        <li class="nav-item active" *ngIf="this.authService.isUser">
+          <a class="nav-link" routerLink="purchase-history/"> Purchase History</a>
+        </li>
+        <li class="nav-item active" *ngIf="loggedIn()" (click)="this.authService.logout()">
+          <a class="nav-link" routerLink="login/">Logout</a>
+        </li>
+        <li class="nav-item active" *ngIf="!loggedIn()">
+          <a class="nav-link" routerLink="login/">Login</a>
+        </li>
+        <li class="nav-item active" *ngIf="!loggedIn()">
+          <a class="nav-link" [routerLink]="['/signup','user']">User Registration</a>
+        </li>
+        <li class="nav-item active" *ngIf="!loggedIn()">
+          <a class="nav-link" [routerLink]="['/signup','admin']">Admin Registration</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+  <!-- <nav class="navbar navbar-expand-sm navbar-dark text-light navbar_bottom ">
+    <h4>Copyright 2019</h4>
+</nav> -->
+  <div class="edit_colors footer fixed-bottom">
+    <h5>Copyright 2019</h5>
+  </div>
+</div>

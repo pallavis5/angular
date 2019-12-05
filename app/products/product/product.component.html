@@ -1,0 +1,62 @@
+<div class="container-fluid mb-5">
+    <div class="card-deck">
+        <div class="col-12 col-md-6 col-lg-3" *ngFor="let list of filteredlist">
+
+            <div class="card mt-2">
+
+                <img src="{{list.image}}" class="card-img-top" alt="Card image" />
+
+                <div class="card-body ">
+                    <div class="row ">
+
+                        <label for="name">
+                            <h5 id="name">{{list.proName}}({{list.brand}})</h5>
+                        </label> <span class="ml-auto" id="price"><label for="price">&#8377;{{list.rate}}</label></span>
+                    </div>
+
+                    <div class="row">
+                        <label for="Product_Code">
+                            <h6>PRODUCT CODE: {{list.proCode}}</h6>
+                        </label>
+                    </div>
+
+                    <div class="row">
+                        <span id="category"><label for="category">
+                                <h6>Category: {{list.proType}}</h6>
+                            </label></span>
+                    </div>
+
+
+                    <div class="row">
+
+                        <label for="name">Aisle: {{list.aisle}}</label> <span class="ml-auto"><label for="price">Shelf:
+                                {{list.shelf}}</label></span>
+                    </div>
+                    <div class="row">
+                        <i class="material-icons">access_time</i><span id="dateofLaunch"><label
+                                for="dateofLaunch">Expiry </label>
+                            <span class="ml-auto"> {{list.expiryDate | date}}</span></span>
+                    </div>
+
+                    <div class="row mx-auto">
+                        <div *ngIf="isAdmin">
+                            <div class="row">
+                                <span> <label for="name">Stock Count: {{list.stockCount}}</label></span> </div>
+
+                            <div class="row">
+                                <span class="ml-auto"><label for="price">Manufacture Date:
+                                        {{list.manufactureDate | date}}</label></span>
+                            </div>
+                            <div>
+                                <button type="button" class="btn edit_colors"
+                                    [routerLink]="['/stock-management',list.proCode]">
+                                    <i class="material-icons other_icon"> create </i> Modify Product </button></div>
+                            <div> <button type="button" class="btn edit_colors mt-3" (click)="delete(list.proCode)">
+                                    <i class="material-icons other_icon"> delete </i> Delete Product </button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
